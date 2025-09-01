@@ -76,90 +76,92 @@ kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -
     </pre>
     <p><strong>Note:</strong> <code>-n</code> flag specifies the namespace.</p>
   </div>
+
+
   <section class="step">
   <h2>📊 Summary of Kubernetes Commands</h2>
-  <table style="width:100%; border-collapse: collapse;">
-    <thead>
-      <tr style="background-color:#f3e5f5; color:#6a1b9a;">
-        <th style="padding:10px; border:1px solid #ccc;">Category</th>
-        <th style="padding:10px; border:1px solid #ccc;">Command</th>
-        <th style="padding:10px; border:1px solid #ccc;">Description</th>
+  <table style="width:100%; border-collapse: collapse; font-size: 0.95rem;">
+    <thead style="background: linear-gradient(to right, #ce93d8, #f48fb1); color: white;">
+      <tr>
+        <th style="padding:12px; border:1px solid #ddd; text-align:left;">🔖 Category</th>
+        <th style="padding:12px; border:1px solid #ddd; text-align:left;">💻 Command</th>
+        <th style="padding:12px; border:1px solid #ddd; text-align:left;">📝 Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:10px; border:1px solid #ccc;">Cluster Info</td>
-        <td style="padding:10px; border:1px solid #ccc;">kubectl get nodes</td>
-        <td style="padding:10px; border:1px solid #ccc;">Shows number of nodes in the cluster</td>
+        <td>Cluster Info</td>
+        <td><code>kubectl get nodes</code></td>
+        <td>Shows number of nodes in the cluster</td>
       </tr>
       <tr>
         <td>Cluster Info</td>
-        <td>kubectl cluster-info</td>
+        <td><code>kubectl cluster-info</code></td>
         <td>Displays cluster endpoint details</td>
       </tr>
       <tr>
         <td>Cluster Info</td>
-        <td>kubectl config get-contexts</td>
+        <td><code>kubectl config get-contexts</code></td>
         <td>Lists available kubeconfig contexts</td>
       </tr>
       <tr>
         <td>Namespace</td>
-        <td>kubectl get ns</td>
+        <td><code>kubectl get ns</code></td>
         <td>Lists all namespaces</td>
       </tr>
       <tr>
         <td>Namespace</td>
-        <td>kubectl create ns batch39</td>
+        <td><code>kubectl create ns batch39</code></td>
         <td>Creates a new namespace</td>
       </tr>
       <tr>
         <td>Namespace</td>
-        <td>kubectl apply -f pathan.yaml</td>
+        <td><code>kubectl apply -f pathan.yaml</code></td>
         <td>Creates or updates resources from YAML</td>
       </tr>
       <tr>
         <td>Pods</td>
-        <td>kubectl get pods -o wide</td>
+        <td><code>kubectl get pods -o wide</code></td>
         <td>Shows detailed pod info</td>
       </tr>
       <tr>
         <td>Pods</td>
-        <td>kubectl get pods -l app=nginx</td>
+        <td><code>kubectl get pods -l app=nginx</code></td>
         <td>Filters pods by label</td>
       </tr>
       <tr>
         <td>Pods</td>
-        <td>kubectl get pods --all-namespaces | grep nginx</td>
+        <td><code>kubectl get pods --all-namespaces | grep nginx</code></td>
         <td>Searches for nginx pods across namespaces</td>
       </tr>
       <tr>
         <td>ReplicaSet</td>
-        <td>kubectl get rs</td>
+        <td><code>kubectl get rs</code></td>
         <td>Lists ReplicaSets</td>
       </tr>
       <tr>
         <td>Service</td>
-        <td>kubectl get svc -n default</td>
+        <td><code>kubectl get svc -n default</code></td>
         <td>Lists services in default namespace</td>
       </tr>
       <tr>
         <td>Service</td>
-        <td>kubectl edit svc nginx -n &lt;namespace&gt;</td>
+        <td><code>kubectl edit svc nginx -n &lt;namespace&gt;</code></td>
         <td>Edits service configuration</td>
       </tr>
       <tr>
         <td>Run</td>
-        <td>kubectl run nginx --image=nginx:latest</td>
+        <td><code>kubectl run nginx --image=nginx:latest</code></td>
         <td>Deploys nginx container</td>
       </tr>
       <tr>
         <td>Expose</td>
-        <td>kubectl expose pod nginx --port=80 --type=LoadBalancer</td>
+        <td><code>kubectl expose pod nginx --port=80 --type=LoadBalancer</code></td>
         <td>Exposes pod as a service</td>
       </tr>
       <tr>
         <td>Expose</td>
-        <td>kubectl expose deployment nginx --port=80 --type=LoadBalancer</td>
+        <td><code>kubectl expose deployment nginx --port=80 --type=LoadBalancer</code></td>
         <td>Exposes deployment as a service</td>
       </tr>
     </tbody>
