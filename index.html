@@ -1,0 +1,64 @@
+# 🧙‍♂️ WizardBrew Guide — Expanded Layout
+
+This version improves horizontal spacing by widening the content container and reducing side padding. Ideal for desktop viewing and command-heavy sections.
+
+---
+
+## 📄 HTML Segment
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WizardBrew Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="wizardbrew-style.css" />
+</head>
+<body>
+
+<header>
+  <div class="profile-action-container">
+    <a href="https://github.com/WizardBrew" target="_blank" rel="noopener">
+      <img src="https://avatars.githubusercontent.com/u/91134716?v=4" alt="Profile Photo" />
+    </a>
+    <button id="notifyBtn">🔔 Notify New Post</button>
+  </div>
+  <h1>📘 Kubernetes Beginner Guide</h1>
+  <div class="bubble-container">
+    <a href="https://devopsenginer.in" class="bubble">🌐 devopsenginer.in</a>
+    <a href="https://github.com/WizardBrew" class="bubble">🐙 GitHub</a>
+    <a href="https://www.linkedin.com/in/parvezmustak8004/" class="bubble">💼 LinkedIn</a>
+    <a href="mailto:wizardbrew@outlook.com" class="bubble">✉️ Email</a>
+  </div>
+</header>
+
+<main>
+  <div class="step">
+    <h2>🔧 Cluster Info</h2>
+    <pre>
+kubectl get nodes
+kubectl cluster-info
+kubectl config get-contexts
+    </pre>
+    <p>View node count, cluster details, and remote config contexts.</p>
+  </div>
+
+  <div class="step">
+    <h2>🆕 Namespace Management</h2>
+    <pre>
+kubectl get ns
+kubectl create -f python.yaml
+kubectl apply -f python.yaml
+kubectl delete -f python.yaml
+    </pre>
+    <p>List, create, apply, and delete namespaces using YAML.</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 WizardBrew. All rights reserved.
+</footer>
+
+</body>
+</html>
