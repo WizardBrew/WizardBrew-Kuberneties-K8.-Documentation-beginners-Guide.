@@ -1,10 +1,8 @@
-# 🧙‍♂️ WizardBrew Guide — Expanded Layout
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>WizardBrew Guide</title>
+  <title>Kubernetes Beginner Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="wizardbrew-style.css" />
 </head>
@@ -28,25 +26,147 @@
 
 <main>
   <div class="step">
-    <h2>🔧 Cluster Info</h2>
+    <h2>🔧 Cluster & Namespace Basics</h2>
     <pre>
-kubectl get nodes
-kubectl cluster-info
-kubectl config get-contexts
+kubectl get nodes                  ==> Shows number of Nodes of cluster
+kubectl cluster-info              ==> Gives the cluster info 
+kubectl config get-contexts       ==> Shows config files for remote access
+kubectl get namespace /ns         ==> Lists namespaces
+kubectl create ns batch39         ==> Creates namespace 'batch39'
+kubectl create -f phatan.yaml     ==> Creates namespace using YAML
+kubectl apply -f pathan.yaml      ==> Creates or updates using YAML
     </pre>
-    <p>View node count, cluster details, and remote config contexts.</p>
   </div>
 
   <div class="step">
-    <h2>🆕 Namespace Management</h2>
+    <h2>📦 Pod & ReplicaSet Management</h2>
     <pre>
-kubectl get ns
-kubectl create -f python.yaml
-kubectl apply -f python.yaml
-kubectl delete -f python.yaml
+kubectl get nodes / no
+kubectl get pods / pods
+kubectl get pods -o wide                  ==> Shows running pods in wide format
+kubectl get pods -l app=nginx             ==> Filters pods with label app=nginx
+kubectl get pods -n default
+kubectl get pods -n my-nginx-podsapce
+kubectl get pods --all-namespaces | grep nginx
+
+kubectl get replicaset / rs
     </pre>
-    <p>List, create, apply, and delete namespaces using YAML.</p>
   </div>
+
+  <div class="step">
+    <h2>🌐 Service & Deployment</h2>
+    <pre>
+kubectl get service / svc
+kubectl get svc -n default                ==> Services in default namespace
+kubectl edit svc nginx -n <namespace>     ==> Edit service type
+
+kubectl describe (no, po, rs, svc)
+kubectl delete (no, po, rs, svc)
+    </pre>
+  </div>
+
+  <div class="step">
+    <h2>🚀 Run & Expose</h2>
+    <pre>
+kubectl run nginx --image=nginx:1.6       ==> Deploy nginx v1.6
+kubectl run nginx --image=nginx:latest    ==> Deploy latest nginx
+
+kubectl expose pod nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace
+kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace
+    </pre>
+    <p><strong>Note:</strong> <code>-n</code> flag specifies the namespace.</p>
+  </div>
+  <section class="step">
+  <h2>📊 Summary of Kubernetes Commands</h2>
+  <table style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color:#f3e5f5; color:#6a1b9a;">
+        <th style="padding:10px; border:1px solid #ccc;">Category</th>
+        <th style="padding:10px; border:1px solid #ccc;">Command</th>
+        <th style="padding:10px; border:1px solid #ccc;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:10px; border:1px solid #ccc;">Cluster Info</td>
+        <td style="padding:10px; border:1px solid #ccc;">kubectl get nodes</td>
+        <td style="padding:10px; border:1px solid #ccc;">Shows number of nodes in the cluster</td>
+      </tr>
+      <tr>
+        <td>Cluster Info</td>
+        <td>kubectl cluster-info</td>
+        <td>Displays cluster endpoint details</td>
+      </tr>
+      <tr>
+        <td>Cluster Info</td>
+        <td>kubectl config get-contexts</td>
+        <td>Lists available kubeconfig contexts</td>
+      </tr>
+      <tr>
+        <td>Namespace</td>
+        <td>kubectl get ns</td>
+        <td>Lists all namespaces</td>
+      </tr>
+      <tr>
+        <td>Namespace</td>
+        <td>kubectl create ns batch39</td>
+        <td>Creates a new namespace</td>
+      </tr>
+      <tr>
+        <td>Namespace</td>
+        <td>kubectl apply -f pathan.yaml</td>
+        <td>Creates or updates resources from YAML</td>
+      </tr>
+      <tr>
+        <td>Pods</td>
+        <td>kubectl get pods -o wide</td>
+        <td>Shows detailed pod info</td>
+      </tr>
+      <tr>
+        <td>Pods</td>
+        <td>kubectl get pods -l app=nginx</td>
+        <td>Filters pods by label</td>
+      </tr>
+      <tr>
+        <td>Pods</td>
+        <td>kubectl get pods --all-namespaces | grep nginx</td>
+        <td>Searches for nginx pods across namespaces</td>
+      </tr>
+      <tr>
+        <td>ReplicaSet</td>
+        <td>kubectl get rs</td>
+        <td>Lists ReplicaSets</td>
+      </tr>
+      <tr>
+        <td>Service</td>
+        <td>kubectl get svc -n default</td>
+        <td>Lists services in default namespace</td>
+      </tr>
+      <tr>
+        <td>Service</td>
+        <td>kubectl edit svc nginx -n &lt;namespace&gt;</td>
+        <td>Edits service configuration</td>
+      </tr>
+      <tr>
+        <td>Run</td>
+        <td>kubectl run nginx --image=nginx:latest</td>
+        <td>Deploys nginx container</td>
+      </tr>
+      <tr>
+        <td>Expose</td>
+        <td>kubectl expose pod nginx --port=80 --type=LoadBalancer</td>
+        <td>Exposes pod as a service</td>
+      </tr>
+      <tr>
+        <td>Expose</td>
+        <td>kubectl expose deployment nginx --port=80 --type=LoadBalancer</td>
+        <td>Exposes deployment as a service</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+  
 </main>
 
 <footer>
