@@ -3,47 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubernetes Documentation</title>
+  <title>Kubernetes Beginner Guide</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
       color: #333;
-    }
-    h1, h2 {
-      color: #2c3e50;
+      padding: 40px;
     }
     h1 {
+      color: #2c3e50;
       border-bottom: 2px solid #2c3e50;
       padding-bottom: 10px;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 40px;
     }
     ul {
       list-style-type: none;
       padding-left: 0;
     }
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
+    code {
       background-color: #eaeaea;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    .section {
+      margin-bottom: 30px;
     }
     .note {
       font-style: italic;
@@ -52,73 +42,72 @@
   </style>
 </head>
 <body>
-  <h1>Kubernetes Documentation</h1>
+  <h1>📘 Kubernetes Beginner Guide</h1>
 
-  <h2>Cluster Information</h2>
-  <ul>
-    <li><code>kubectl get nodes</code> → Shows number of nodes in the cluster</li>
-    <li><code>kubectl cluster-info</code> → Displays cluster information</li>
-    <li><code>kubectl config get-contexts</code> → Shows config files to connect from different remote locations</li>
-  </ul>
+  <div class="section">
+    <h2>🔧 Cluster Basics</h2>
+    <ul>
+      <li><code>kubectl get nodes</code> — Shows number of nodes in the cluster</li>
+      <li><code>kubectl cluster-info</code> — Displays cluster information</li>
+      <li><code>kubectl config get-contexts</code> — Lists config files for remote access</li>
+    </ul>
+  </div>
 
-  <h2>Namespaces</h2>
-  <ul>
-    <li><code>kubectl get namespace</code> or <code>kubectl get ns</code> → Lists namespaces in the cluster</li>
-    <li><code>kubectl create ns batch39</code> → Creates a new namespace named batch39</li>
-    <li><code>kubectl create -f <a href="https://phatan.yaml">phatan.yaml</a></code> → Creates a namespace using YAML configuration</li>
-    <li><code>kubectl apply -f <a href="https://pathan.yaml">pathan.yaml</a></code> → Creates or updates resources using YAML (recommended)</li>
-  </ul>
+  <div class="section">
+    <h2>📂 Namespaces</h2>
+    <ul>
+      <li><code>kubectl get namespace</code> or <code>kubectl get ns</code> — Lists namespaces</li>
+      <li><code>kubectl create ns batch39</code> — Creates a namespace named <code>batch39</code></li>
+      <li><code>kubectl create -f phatan.yaml</code> — Creates namespace using YAML</li>
+      <li><code>kubectl apply -f pathan.yaml</code> — Recommended for creating/updating resources</li>
+    </ul>
+  </div>
 
-  <h2>Pods</h2>
-  <ul>
-    <li><code>kubectl get pods</code> or <code>kubectl get po</code> → Lists all pods</li>
-    <li><code>kubectl get pods -o wide</code> → Lists pods with extended information</li>
-    <li><code>kubectl get pods -l app=nginx</code> → Lists pods with label <code>app=nginx</code></li>
-    <li><code>kubectl get pods -n default</code> → Lists pods in the <code>default</code> namespace</li>
-    <li><code>kubectl get pods -n my-nginx-podspace</code> → Lists pods in the <code>my-nginx-podspace</code> namespace</li>
-    <li><code>kubectl get pods --all-namespaces | grep nginx</code> → Filters pods across all namespaces for nginx</li>
-  </ul>
+  <div class="section">
+    <h2>📦 Pods</h2>
+    <ul>
+      <li><code>kubectl get pods</code> or <code>kubectl get po</code> — Lists all pods</li>
+      <li><code>kubectl get pods -o wide</code> — Shows extended pod info</li>
+      <li><code>kubectl get pods -l app=nginx</code> — Filters pods with label <code>app=nginx</code></li>
+      <li><code>kubectl get pods -n default</code> — Pods in <code>default</code> namespace</li>
+      <li><code>kubectl get pods -n my-nginx-podspace</code> — Pods in custom namespace</li>
+      <li><code>kubectl get pods --all-namespaces | grep nginx</code> — Search nginx pods across namespaces</li>
+    </ul>
+  </div>
 
-  <h2>ReplicaSets</h2>
-  <ul>
-    <li><code>kubectl get replicaset</code> or <code>kubectl get rs</code> → Lists ReplicaSets</li>
-  </ul>
+  <div class="section">
+    <h2>📊 ReplicaSets</h2>
+    <ul>
+      <li><code>kubectl get replicaset</code> or <code>kubectl get rs</code> — Lists ReplicaSets</li>
+    </ul>
+  </div>
 
-  <h2>Services</h2>
-  <ul>
-    <li><code>kubectl get service</code> or <code>kubectl get svc</code> → Lists services</li>
-    <li><code>kubectl get svc -n default</code> → Lists services in the <code>default</code> namespace</li>
-    <li><code>kubectl edit svc nginx -n &lt;namespace&gt;</code> → Edits the service named nginx in the specified namespace</li>
-  </ul>
+  <div class="section">
+    <h2>🌐 Services</h2>
+    <ul>
+      <li><code>kubectl get service</code> or <code>kubectl get svc</code> — Lists services</li>
+      <li><code>kubectl get svc -n default</code> — Services in <code>default</code> namespace</li>
+      <li><code>kubectl edit svc nginx -n &lt;namespace&gt;</code> — Edit service type</li>
+    </ul>
+  </div>
 
-  <h2>Resource Details and Deletion</h2>
-  <ul>
-    <li><code>kubectl describe &lt;resource&gt;</code> → Describes a resource (e.g., node, pod, rs, svc)</li>
-    <li><code>kubectl delete &lt;resource&gt;</code> → Deletes a resource (e.g., node, pod, rs, svc)</li>
-  </ul>
+  <div class="section">
+    <h2>🧹 Resource Management</h2>
+    <ul>
+      <li><code>kubectl describe &lt;resource&gt;</code> — Describe node, pod, rs, svc</li>
+      <li><code>kubectl delete &lt;resource&gt;</code> — Delete node, pod, rs, svc</li>
+    </ul>
+  </div>
 
-  <h2>Running and Exposing Applications</h2>
-  <ul>
-    <li><code>kubectl run nginx --image=nginx:1.6</code> → Runs nginx with version 1.6</li>
-    <li><code>kubectl run nginx --image=nginx:latest</code> → Runs nginx with the latest version</li>
-    <li><code>kubectl expose pod nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> → Exposes the nginx pod</li>
-    <li><code>kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> → Exposes the nginx deployment</li>
-  </ul>
-
-  <p class="note">Note: <code>-n</code> flag specifies the namespace.</p>
-
-  <h2>Summary Table of kubectl Commands</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Command</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table rows preserved as-is for brevity -->
-      <!-- You can paste the full table rows here -->
-    </tbody>
-  </table>
+  <div class="section">
+    <h2>🚀 Running & Exposing Applications</h2>
+    <ul>
+      <li><code>kubectl run nginx --image=nginx:1.6</code> — Run nginx v1.6</li>
+      <li><code>kubectl run nginx --image=nginx:latest</code> — Run latest nginx</li>
+      <li><code>kubectl expose pod nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> — Expose nginx pod</li>
+      <li><code>kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> — Expose nginx deployment</li>
+    </ul>
+    <p class="note">Note: <code>-n</code> specifies the namespace.</p>
+  </div>
 </body>
 </html>
