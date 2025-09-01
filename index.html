@@ -2,112 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubernetes Beginner Guide</title>
+  <title>🧙‍♂️ Kubernetes Beginner Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      padding: 40px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0; padding: 0; color: #333;
+      background: linear-gradient(135deg, #ffccbc, #ffe0b2, #f8bbd0, #d1c4e9);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
     }
-    h1 {
-      color: #2c3e50;
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 10px;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    h2 {
-      color: #34495e;
-      margin-top: 40px;
+    header { text-align: center; padding: 40px 20px 20px; }
+    .profile-action-container {
+      display: flex; justify-content: center; align-items: center;
+      gap: 15px; margin-bottom: 10px;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    header a img {
+      width: 120px; border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
     }
-    li {
-      margin-bottom: 10px;
+    header a img:hover { transform: scale(1.05); }
+    #notifyBtn {
+      background: linear-gradient(to right, #42a5f5, #1e88e5);
+      color: white; border: none; padding: 10px 20px;
+      border-radius: 30px; font-weight: bold; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    code {
-      background-color: #eaeaea;
-      padding: 2px 6px;
-      border-radius: 4px;
+    header h1 {
+      margin-top: 15px; font-size: 2rem; color: #6a1b9a;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
     }
-    .section {
-      margin-bottom: 30px;
+    .bubble-container {
+      display: flex; justify-content: center; gap: 15px;
+      margin-top: 20px; flex-wrap: wrap;
     }
-    .note {
-      font-style: italic;
-      margin-top: 10px;
+    .bubble {
+      background: linear-gradient(to bottom right, #81d4fa, #4fc3f7);
+      color: white; padding: 10px 20px; border-radius: 30px;
+      font-weight: bold; text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.3s;
+    }
+    .bubble:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to bottom right, #4fc3f7, #0288d1);
+    }
+    main { padding: 2rem; max-width: 900px; margin: auto; }
+    h2 { color: #0078d4; font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+    p { margin: 0.5rem 0 1rem; }
+    pre {
+      background: linear-gradient(to right, #fce4ec, #f3e5f5);
+      padding: 1rem; border-left: 5px solid #ec407a;
+      border-radius: 8px; overflow-x: auto;
+      font-family: Consolas, monospace; font-size: 0.95rem;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+    }
+    .step {
+      background: linear-gradient(to bottom right, #ffffff, #f3e5f5);
+      padding: 1.5rem; border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 2rem;
+    }
+    footer {
+      text-align: center; padding: 20px;
+      background: linear-gradient(to right, #ce93d8, #f48fb1); color: white;
+    }
+    @media (max-width: 600px) {
+      .profile-action-container { flex-direction: column; }
     }
   </style>
 </head>
 <body>
+
+<header>
+  <div class="profile-action-container">
+    <a href="https://github.com/WizardBrew" target="_blank" rel="noopener">
+      <img src="https://avatars.githubusercontent.com/u/91134716?v=4" alt="Profile Photo" />
+    </a>
+    <button id="notifyBtn">🔔 Notify New Post</button>
+  </div>
   <h1>📘 Kubernetes Beginner Guide</h1>
+  <div class="bubble-container">
+    <a href="https://devopsenginer.in" class="bubble">🌐 devopsenginer.in</a>
+    <a href="https://github.com/WizardBrew" class="bubble">🐙 GitHub</a>
+    <a href="https://www.linkedin.com/in/parvezmustak8004/" class="bubble">💼 LinkedIn</a>
+    <a href="mailto:wizardbrew@outlook.com" class="bubble">✉️ Email</a>
+  </div>
+</header>
 
-  <div class="section">
-    <h2>🔧 Cluster Basics</h2>
-    <ul>
-      <li><code>kubectl get nodes</code> — Shows number of nodes in the cluster</li>
-      <li><code>kubectl cluster-info</code> — Displays cluster information</li>
-      <li><code>kubectl config get-contexts</code> — Lists config files for remote access</li>
-    </ul>
+<main>
+  <p>This guide covers essential Kubernetes commands for managing clusters, namespaces, pods, services, and deployments.</p>
+
+  <div class="step">
+    <h2>🔧 Cluster Info</h2>
+    <pre>
+kubectl get nodes
+kubectl cluster-info
+kubectl config get-contexts
+    </pre>
+    <p>View node count, cluster details, and remote config contexts.</p>
   </div>
 
-  <div class="section">
-    <h2>📂 Namespaces</h2>
-    <ul>
-      <li><code>kubectl get namespace</code> or <code>kubectl get ns</code> — Lists namespaces</li>
-      <li><code>kubectl create ns batch39</code> — Creates a namespace named <code>batch39</code></li>
-      <li><code>kubectl create -f phatan.yaml</code> — Creates namespace using YAML</li>
-      <li><code>kubectl apply -f pathan.yaml</code> — Recommended for creating/updating resources</li>
-    </ul>
+  <div class="step">
+    <h2>📂 Namespace Management</h2>
+    <pre>
+kubectl get namespace
+kubectl create ns batch39
+kubectl create -f phatan.yaml
+kubectl apply -f pathan.yaml
+    </pre>
+    <p>List, create, and apply namespaces using YAML.</p>
   </div>
 
-  <div class="section">
-    <h2>📦 Pods</h2>
-    <ul>
-      <li><code>kubectl get pods</code> or <code>kubectl get po</code> — Lists all pods</li>
-      <li><code>kubectl get pods -o wide</code> — Shows extended pod info</li>
-      <li><code>kubectl get pods -l app=nginx</code> — Filters pods with label <code>app=nginx</code></li>
-      <li><code>kubectl get pods -n default</code> — Pods in <code>default</code> namespace</li>
-      <li><code>kubectl get pods -n my-nginx-podspace</code> — Pods in custom namespace</li>
-      <li><code>kubectl get pods --all-namespaces | grep nginx</code> — Search nginx pods across namespaces</li>
-    </ul>
+  <div class="step">
+    <h2>📦 Pod Operations</h2>
+    <pre>
+kubectl get pods
+kubectl get pods -o wide
+kubectl get pods -l app=nginx
+kubectl get pods -n default
+kubectl get pods -n my-nginx-podspace
+kubectl get pods --all-namespaces | grep nginx
+    </pre>
+    <p>Inspect pods across namespaces and filter by labels.</p>
   </div>
 
-  <div class="section">
+  <div class="step">
     <h2>📊 ReplicaSets</h2>
-    <ul>
-      <li><code>kubectl get replicaset</code> or <code>kubectl get rs</code> — Lists ReplicaSets</li>
-    </ul>
+    <pre>kubectl get replicaset</pre>
+    <p>List all ReplicaSets in the cluster.</p>
   </div>
 
-  <div class="section">
+  <div class="step">
     <h2>🌐 Services</h2>
-    <ul>
-      <li><code>kubectl get service</code> or <code>kubectl get svc</code> — Lists services</li>
-      <li><code>kubectl get svc -n default</code> — Services in <code>default</code> namespace</li>
-      <li><code>kubectl edit svc nginx -n &lt;namespace&gt;</code> — Edit service type</li>
-    </ul>
+    <pre>
+kubectl get service
+kubectl get svc -n default
+kubectl edit svc nginx -n &lt;namespace&gt;
+    </pre>
+    <p>Manage services and edit service types.</p>
   </div>
 
-  <div class="section">
+  <div class="step">
     <h2>🧹 Resource Management</h2>
-    <ul>
-      <li><code>kubectl describe &lt;resource&gt;</code> — Describe node, pod, rs, svc</li>
-      <li><code>kubectl delete &lt;resource&gt;</code> — Delete node, pod, rs, svc</li>
-    </ul>
+    <pre>
+kubectl describe &lt;resource&gt;
+kubectl delete &lt;resource&gt;
+    </pre>
+    <p>Describe or delete nodes, pods, ReplicaSets, and services.</p>
   </div>
 
-  <div class="section">
-    <h2>🚀 Running & Exposing Applications</h2>
-    <ul>
-      <li><code>kubectl run nginx --image=nginx:1.6</code> — Run nginx v1.6</li>
-      <li><code>kubectl run nginx --image=nginx:latest</code> — Run latest nginx</li>
-      <li><code>kubectl expose pod nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> — Expose nginx pod</li>
-      <li><code>kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace</code> — Expose nginx deployment</li>
-    </ul>
-    <p class="note">Note: <code>-n</code> specifies the namespace.</p>
+  <div class="step">
+    <h2>🚀 Deploy & Expose</h2>
+    <pre>
+kubectl run nginx --image=nginx:1.6
+kubectl run nginx --image=nginx:latest
+kubectl expose pod nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace
+kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer -n my-nginx-podspace
+    </pre>
+    <p>Run and expose nginx pods or deployments. <strong>-n</strong> specifies the namespace.</p>
   </div>
+</main>
+
+<footer>
+  &copy; 2025 WizardBrew. All rights reserved.
+</footer>
+
 </body>
 </html>
