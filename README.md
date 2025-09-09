@@ -3,7 +3,7 @@
 
 Welcome to the **WizardBrew Kubernetes K8s Documentation** — a beginner-friendly guide to mastering Kubernetes commands and workflows.
 
-📘 [View Kubernetes Guide](https://wizardbrew.github.io/WizardBrew-Kuberneties-K8.-Documentation-beginners-Guide./)
+📘 [View Kubernetes Guide](https://wizardbrew.github.io/Kuberneties4beginnersGuide/)
 
 ## 📂 Repository Contents
 
